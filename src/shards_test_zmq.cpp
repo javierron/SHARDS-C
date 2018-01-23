@@ -12,7 +12,6 @@ int main(int argc, char** argv){
 		argv[2] = bucket size
 		argv[3] = R
 		argv[4] = mrc file 
-		argv[5] = size 
 	*/
 
 
@@ -42,11 +41,7 @@ int main(int argc, char** argv){
 
 	bm_op_t rec_op = {BM_WRITE_OP, 0};
 
-	int size = strtol(argv[5], NULL, 10);
-    int count = 0;
-
-	while (count < size) {
-		count++;
+	while (1) {
 		//char buffer[sizeof(bm_op_t)];
         int nbytes = zmq_recv(consumer, &rec_op, sizeof(bm_op_t), 0);
 
