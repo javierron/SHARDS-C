@@ -23,7 +23,7 @@ int main(int argc, char** argv){
     fprintf (stderr, "Connected consumer...\n");
 
 	
-	printf("SHARDS\n");
+	//printf("SHARDS\n");
 	int obj_length = strtol(argv[1],NULL,10);
 
 	char* object = (char*)calloc((obj_length+2),sizeof(char));
@@ -85,15 +85,15 @@ int main(int argc, char** argv){
 	g_list_free(first);
 	g_hash_table_destroy(mrc);
 	
-	printf("%ld\n", start_time);
-	printf("%ld\n", end_time);
+	//printf("%ld\n", start_time);
+	//printf("%ld\n", end_time);
 	int total_time = ((end_time - start_time))/CLOCKS_PER_SEC;
-	printf("TIME: %d\n", total_time);
+	//printf("TIME: %d\n", total_time);
 	unsigned int objects_parsed =  shards->total_objects;
     
 	double throughput = objects_parsed/(total_time+1);
     SHARDS_free(shards);
-	printf("Throughput: %f\n", throughput);
+	printf("SHARDS: Printed MRC data in mrc.dat %f\n", throughput);
     return 0;
 
 }
